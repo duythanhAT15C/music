@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài Hát Yêu Thích - NCT Player</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div id="main-container">
+      <div class="sidebar d-none d-lg-flex flex-column">
+        <h3 class="mb-4">NCT Player</h3>
+        <a href="index.html" class="nav-link"
+          ><i class="fas fa-home me-2"></i>Khám Phá</a
+        >
+        <a href="#" class="nav-link"
+          ><i class="fas fa-user me-2"></i>Dành Cho Bạn</a
+        >
+        <a href="favorites.html" class="nav-link active"
+          ><i class="fas fa-music me-2"></i>Bài Hát Yêu Thích</a
+        >
+        <div>
+          <button class="btn btn-outline-light w-100 mt-3">Đăng nhập</button>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 p-3">
+        <div class="mobile-header-row d-lg-none mb-4">
+          <button class="burger-btn"><i class="fas fa-bars"></i></button>
+          <h2 class="mobile-player-title">Bài hát yêu thích</h2>
+        </div>
+        <h2 class="mb-4 d-none d-lg-block">Bài hát yêu thích của bạn</h2>
+
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            id="fav-search-input"
+            class="form-control"
+            placeholder="Tìm trong danh sách yêu thích..."
+          />
+          <button id="fav-search-btn" class="btn btn-success">
+            <i class="fas fa-search"></i> Tìm
+          </button>
+        </div>
+
+        <div id="fav-track-list" class="list-group mb-5"></div>
+      </div>
+    </div>
+
+    <!-- Player bar giữ nguyên -->
+    <div class="player-bar">
+      <div class="player-info-top mb-2">
+        <img class="player-cover" src="https://placehold.co/60" alt="Cover" />
+        <div>
+          <div class="player-title">Chưa chọn bài</div>
+          <div class="player-artist">---</div>
+        </div>
+      </div>
+
+      <div class="progress-wrapper">
+        <input
+          type="range"
+          class="progress-slider"
+          min="0"
+          max="100"
+          value="0"
+        />
+        <div class="time-info">
+          <span id="current-time">0:00</span>
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+
+      <div
+        class="player-main-controls d-flex justify-content-between align-items-center mt-3"
+      >
+        <div class="player-spacer"></div>
+
+        <div class="controls-group">
+          <button class="btn btn-icon shuffle-btn" title="Phát ngẫu nhiên">
+            <i class="fas fa-random"></i>
+          </button>
+          <button class="btn btn-icon prev-btn">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="btn btn-icon play-btn">
+            <i class="far fa-play-circle"></i>
+          </button>
+          <button class="btn btn-icon next-btn">
+            <i class="fas fa-step-forward"></i>
+          </button>
+          <button class="btn btn-icon replay-btn">
+            <i class="fas fa-redo"></i>
+          </button>
+          <button class="fav-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+
+        <div class="volume-container">
+          <input
+            type="range"
+            class="volume-slider"
+            min="0"
+            max="100"
+            value="80"
+          />
+          <button class="btn btn-icon volume-up">
+            <i class="fas fa-volume-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="youtube-player"
+      style="width: 1px; height: 1px; position: absolute; left: -1000px"
+    ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="player-core.js"></script>
+    <script src="main.js"></script>
+    <script src="favorites.js"></script>
+  </body>
+</html>
